@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html class="ui-page-login">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link href="../../css/frame/mui.min.css" rel="stylesheet" />
+		<link href="../../css/frame/common.css" rel="stylesheet" />
+		<link href="../../css/serviceStore/serviceStore.css" rel="stylesheet" />
+	</head>
+	<body>
+		<div class="myAddress">
+			<span class=""><span class="mui-icon mui-icon-location"></span>我的地址</span>
+			<a class="refreshAddress">
+				<span class="mui-icon mui-icon-loop"></span>
+			</a>
+		</div>
+		<div class="nav mui-row">
+			<div class="mui-col-sm-4 mui-col-xs-4 menu" downContent="addressInfo">
+				<div>浦东新区<span class="mui-icon mui-icon-arrowdown"></span></div>
+			</div>
+			<div class="mui-col-sm-4 mui-col-xs-4 menu" downContent="address">
+				<div>浦东新区11<span class="mui-icon mui-icon-arrowdown"></span></div>
+			</div>
+		</div>
+		<div class="content">
+		</div>
+
+		<div class="downContent">
+			<div id="addressInfo" >
+				<div class="mui-col-xs-3">
+					<div id="city" class="mui-segmented-control mui-segmented-control-inverted mui-segmented-control-vertical">
+					</div>
+				</div>
+				<div id="segmentedControlContents" class="mui-col-xs-9" style="border-left: 1px solid #c8c7cc;">
+					<div id="item1" class="mui-control-content mui-active">
+					</div>
+					<div id="item2" class="mui-control-content">
+					</div>
+					<div id="item3" class="mui-control-content">
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="../../js/frame/mui.min.js"></script>
+		<script>
+			mui.init({
+				swipeBack: true //启用右滑关闭功能
+			});
+			var menu = document.getElementsByClassName("menu");
+			var downContent = document.getElementsByClassName('downContent');
+			for(  var i =0 ; i < menu.length;i++){
+				menu[i].addEventListener('click', function(){
+					var downTitle = this.getAttribute("downContent");
+					var downMenu = document.getElementById( downTitle );
+					downMenu.style.display="block";
+				}, false);
+			}
+
+
+
+
+			var controls = document.getElementById("city");
+			var contents = document.getElementById("segmentedControlContents");
+			var html = [];
+			var i = 1,
+					j = 1,
+					m = 16, //左侧选项卡数量+1
+					n = 21; //每个选项卡列表数量+1
+			for (; i < m; i++) {
+				html.push('<a class="mui-control-item" href="#content' + i + '">选项' + i + '</a>');
+			}
+			controls.innerHTML = html.join('');
+			html = [];
+			for (i = 1; i < m; i++) {
+				html.push('<div id="content' + i + '" class="mui-control-content"><ul class="mui-table-view">');
+				for (j = 1; j < n; j++) {
+					html.push('<li class="mui-table-view-cell">第' + i + '个选项卡子项-' + j + '</li>');
+				}
+				html.push('</ul></div>');
+			}
+			contents.innerHTML = html.join('');
+			//默认选中第一个
+			controls.querySelector('.mui-control-item').classList.add('mui-active');
+			contents.querySelector('.mui-control-content').classList.add('mui-active');
+		</script>
+	</body>
+
+</html>
