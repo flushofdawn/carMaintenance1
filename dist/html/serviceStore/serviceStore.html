@@ -44,53 +44,53 @@
 			</div>
 		</div>
 		<script src="../../js/frame/mui.min.js"></script>
+		<script src="../../js/frame/jquery.min.js"></script>
+		<script src="../../js/frame/fastclick.js"></script>
+		<script src="../../js/frame/common.js"></script>
 		<script>
+			$(function () {
+
+			})
+
 			mui.init({
 				swipeBack: true //启用右滑关闭功能
 			});
-			var menu = document.getElementsByClassName("menu");
-			var downContent = document.getElementsByClassName('downContent');
-			for(  var i =0 ; i < menu.length;i++){
-				menu[i].addEventListener('tap', function(){
-					var downTitle = this.getAttribute("downContent");
-					var downMenu = document.getElementById( downTitle );
-					var spanIcon=  this.getElementsByClassName('mui-icon');
-
-					if( downContent[0].style.display == "block" ){
-						downContent[0].style.display = "none";
-						downMenu.style.display = "none";
-						spanIcon[0].classList.add( "mui-icon-arrowdown" );
-						spanIcon[0].classList.remove( "mui-icon-arrowup" );
-					}else{
-						downContent[0].style.display = "block";
-						downMenu.style.display = "block";
-						spanIcon[0].classList.add( "mui-icon-arrowup" );
-						spanIcon[0].classList.remove( "mui-icon-arrowdown" );
-					}
-
-
-				}, false);
-			}
-
-
-
+			var menu = $(".menu");
+			var downContent = $('.downContent');
+			menu.on('tap', function(eve){
+				var downTitle = $( this ).attr("downContent");
+				var downMenu = $( "#"+ downTitle );
+				var spanIcon =  $( this ).find('.mui-icon');
+				if( downContent.css( "display" ) == "block" ){
+					downContent.fadeOut();
+					downMenu.slideUp();
+					spanIcon.addClass( "mui-icon-arrowdown" );
+					spanIcon.removeClass( "mui-icon-arrowup" );
+				}else{
+					downContent.fadeIn();
+					downMenu.slideDown();
+					spanIcon.addClass( "mui-icon-arrowup" );
+					spanIcon.removeClass( "mui-icon-arrowdown" );
+				}
+			});
+			$(".downContent").on('click', function(eve){
+				$(this).fadeOut();
+				$(this).children("div").slideUp();
+			});
 
 			var controls = document.getElementById("city");
 			var contents = document.getElementById("segmentedControlContents");
 			var html = [];
-			var i = 1,
-					j = 1,
-					m = 16, //左侧选项卡数量+1
-					n = 21; //每个选项卡列表数量+1
-			for (; i < m; i++) {
-				html.push('<a class="mui-control-item" href="#content' + i + '">选项' + i + '</a>');
+			for (i = 1; i < 10; i++) {
+				var strA = '<a class="mui-control-item"  onclick="stopBubble( event )" href="#content' + i + '">选项' + i + '</a>';
+				html.push( strA );
 			}
 			controls.innerHTML = html.join('');
 			html = [];
-			for (i = 1; i < m; i++) {
+			for (i = 1; i < 10; i++) {
 				html.push('<div id="content' + i + '" class="mui-control-content"><ul class="mui-table-view">');
-				for (j = 1; j < n; j++) {
-					html.push('<li class="mui-table-view-cell">第' + i + '个选项卡子项-' + j + '</li>');
+				for (j = 1; j < 21; j++) {
+					html.push('<li class="mui-table-view-cell" onclick="stopBubble( event )">第' + i + '个选项卡子项-' + j + '</li>');
 				}
 				html.push('</ul></div>');
 			}
@@ -98,6 +98,11 @@
 			//默认选中第一个
 			controls.querySelector('.mui-control-item').classList.add('mui-active');
 			contents.querySelector('.mui-control-content').classList.add('mui-active');
+
+			$('#addressInfo').click(function () {
+				FastClick.attach( document.getElementById("addressInfo") );
+			})
+			FastClick.attach(document.body);
 		</script>
 	</body>
 
