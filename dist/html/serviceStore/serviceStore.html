@@ -20,20 +20,20 @@
 			<div class="mui-col-sm-4 mui-col-xs-4 menu" downContent="addressInfo">
 				<div>浦东新区<span class="mui-icon mui-icon-arrowdown"></span></div>
 			</div>
-			<div class="mui-col-sm-4 mui-col-xs-4 menu" downContent="address">
-				<div>浦东新区11<span class="mui-icon mui-icon-arrowdown"></span></div>
+			<div class="mui-col-sm-4 mui-col-xs-4 menu" downContent="addressInfo">
+				<div>排序<span class="mui-icon mui-icon-arrowdown"></span></div>
 			</div>
 		</div>
 		<div class="content">
 		</div>
 
 		<div class="downContent">
-			<div id="addressInfo" >
-				<div class="mui-col-xs-3">
+			<div id="addressInfo" class="mui-row">
+				<div class="mui-col-xs-4" >
 					<div id="city" class="mui-segmented-control mui-segmented-control-inverted mui-segmented-control-vertical">
 					</div>
 				</div>
-				<div id="segmentedControlContents" class="mui-col-xs-9" style="border-left: 1px solid #c8c7cc;">
+				<div id="segmentedControlContents" class="mui-col-xs-8" style="border-left: 1px solid #c8c7cc;">
 					<div id="item1" class="mui-control-content mui-active">
 					</div>
 					<div id="item2" class="mui-control-content">
@@ -51,10 +51,24 @@
 			var menu = document.getElementsByClassName("menu");
 			var downContent = document.getElementsByClassName('downContent');
 			for(  var i =0 ; i < menu.length;i++){
-				menu[i].addEventListener('click', function(){
+				menu[i].addEventListener('tap', function(){
 					var downTitle = this.getAttribute("downContent");
 					var downMenu = document.getElementById( downTitle );
-					downMenu.style.display="block";
+					var spanIcon=  this.getElementsByClassName('mui-icon');
+
+					if( downContent[0].style.display == "block" ){
+						downContent[0].style.display = "none";
+						downMenu.style.display = "none";
+						spanIcon[0].classList.add( "mui-icon-arrowdown" );
+						spanIcon[0].classList.remove( "mui-icon-arrowup" );
+					}else{
+						downContent[0].style.display = "block";
+						downMenu.style.display = "block";
+						spanIcon[0].classList.add( "mui-icon-arrowup" );
+						spanIcon[0].classList.remove( "mui-icon-arrowdown" );
+					}
+
+
 				}, false);
 			}
 

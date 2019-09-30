@@ -5,7 +5,7 @@ html {
     -ms-text-size-adjust: 100%;
     /* 解决IOS默认滑动很卡的情况 */
     -webkit-overflow-scrolling : touch;
-    font-size: 14px;
+    font-size: 12px;
     background-color: #FFF;
 }
 /* 禁止缩放表单 */

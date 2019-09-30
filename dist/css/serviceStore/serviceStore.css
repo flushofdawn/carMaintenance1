@@ -34,17 +34,37 @@
 	border-right: 1px solid #DBDBDB;
 	text-align: center;
 }
+/*
 .nav>div:last-child > div{
 	border-right: none;
-}
+}*/
 .nav>div>div .mui-icon{
 	font-size: 1.3rem;
 }
+.downContent{
+	display: none;
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 6.14rem;
+	z-index: 100000;
+	bottom: 0;
+	background-color: rgba( 0,0,0,0.3 );
+}
 .downContent>div{
 	display: none;
+	width: 100%;
+	overflow: auto;
+	background-color: #FFF;
 }
-
-
+#addressInfo{
+	height: 80%;
+}
+#city>.mui-control-item{
+	width: 100%;
+	text-align: left;
+	padding: 0 1rem;
+}
 
 
 
