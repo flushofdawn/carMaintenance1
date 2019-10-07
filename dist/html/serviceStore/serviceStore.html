@@ -6,44 +6,258 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<title></title>
 		<link href="../../css/frame/mui.min.css" rel="stylesheet" />
+		<link href="../../css/frame/mui.picker.min.css" rel="stylesheet" />
 		<link href="../../css/frame/common.css" rel="stylesheet" />
 		<link href="../../css/serviceStore/serviceStore.css" rel="stylesheet" />
 	</head>
 	<body>
-		<div class="myAddress">
-			<span class=""><span class="mui-icon mui-icon-location"></span>我的地址</span>
-			<a class="refreshAddress">
-				<span class="mui-icon mui-icon-loop"></span>
-			</a>
-		</div>
-		<div class="nav mui-row">
-			<div class="mui-col-sm-4 mui-col-xs-4 menu" downContent="addressInfo">
-				<div>浦东新区<span class="mui-icon mui-icon-arrowdown"></span></div>
+		<header class="mui-bar mui-bar-nav">
+			<h1 class="mui-title">服务预约</h1>
+		</header>
+		<div class="mui-content">
+			<div style="padding: 10px 10px;">
+				<div id="segmentedControl" class="mui-segmented-control">
+					<a class="mui-control-item mui-active" href="#item1">附近网点</a>
+					<a class="mui-control-item" href="#item2">我的预约</a>
+				</div>
 			</div>
-			<div class="mui-col-sm-4 mui-col-xs-4 menu" downContent="addressInfo">
-				<div>排序<span class="mui-icon mui-icon-arrowdown"></span></div>
-			</div>
-		</div>
-		<div class="content">
-		</div>
+			<div class="tabT1">
+				<div id="item1" class="mui-control-content mui-active">
+					<div class="myAddress">
+						<span class=""><span class="mui-icon mui-icon-location"></span>我的地址</span>
+						<a class="refreshAddress">
+							<span class="mui-icon mui-icon-loop"></span>
+						</a>
+					</div>
+					<div class="nav mui-row">
+						<div class="mui-col-sm-4 mui-col-xs-4 menu" downContent="addressInfo">
+							<div>浦东新区<span class="mui-icon mui-icon-arrowdown"></span></div>
+						</div>
+						<div class="mui-col-sm-4 mui-col-xs-4 menu" downContent="sort">
+							<div>排序<span class="mui-icon mui-icon-arrowdown"></span></div>
+						</div>
+					</div>
+					<div class="content">
+						<ul class="mui-table-view">
+							<li class="mui-table-view-cell mui-media">
+								<a href="javascript:;">
+									<img class="mui-media-object mui-pull-left" src="../../images/serviceStore/tx1.jpg">
+									<div class="mui-media-body">
+										<p class='mui-ellipsis'>一汽丰田4S店-国信丰田</p>
+										<div class="mui-row storeAddress">
+											<span class="mui-col-sm-10 mui-col-xs-10">普陀区金沙路2023号</span>
+											<span class="mui-col-sm-2 mui-col-xs-2">1.2km</span>
+										</div>
+										<div class="mui-row appointment">
+											<span class="mui-col-sm-3 mui-col-xs-3">预约时间：</span>
+											<div class="mui-col-sm-6 mui-col-xs-6">
+												<input type="text" class="timeInput" readonly onclick="chooseTime(this)" />
+											</div>
+											<div class="mui-col-sm-3 mui-col-xs-3">
+												<div class="mui-btn mui-btn-primary appointmentBtn">
+													预约
+												</div>
+											</div>
+										</div>
+									</div>
+								</a>
+							</li>
+							<li class="mui-table-view-cell mui-media">
+								<a href="javascript:;">
+									<img class="mui-media-object mui-pull-left" src="../../images/serviceStore/tx2.jpg">
+									<div class="mui-media-body">
+										<p class='mui-ellipsis'>一汽丰田4S店-国信丰田</p>
+										<div class="mui-row storeAddress">
+											<span class="mui-col-sm-10 mui-col-xs-10">普陀区金沙路2023号</span>
+											<span class="mui-col-sm-2 mui-col-xs-2">1.2km</span>
+										</div>
+										<div class="mui-row appointment">
+											<span class="mui-col-sm-3 mui-col-xs-3">预约时间：</span>
+											<div class="mui-col-sm-6 mui-col-xs-6">
+												<input type="text" class="timeInput" />
+											</div>
+											<div class="mui-col-sm-3 mui-col-xs-3">
+												<div class="mui-btn mui-btn-primary appointmentBtn">
+													预约
+												</div>
+											</div>
+										</div>
+									</div>
+								</a>
+							</li>
+							<li class="mui-table-view-cell mui-media">
+								<a href="javascript:;">
+									<img class="mui-media-object mui-pull-left" src="../../images/serviceStore/tx3.jpg">
+									<div class="mui-media-body">
+										<p class='mui-ellipsis'>一汽丰田4S店-国信丰田</p>
+										<div class="mui-row storeAddress">
+											<span class="mui-col-sm-10 mui-col-xs-10">普陀区金沙路2023号</span>
+											<span class="mui-col-sm-2 mui-col-xs-2">1.2km</span>
+										</div>
+										<div class="mui-row appointment">
+											<span class="mui-col-sm-3 mui-col-xs-3">预约时间：</span>
+											<div class="mui-col-sm-6 mui-col-xs-6">
+												<input type="text" class="timeInput" />
+											</div>
+											<div class="mui-col-sm-3 mui-col-xs-3">
+												<div class="mui-btn mui-btn-primary appointmentBtn">
+													预约
+												</div>
+											</div>
+										</div>
+									</div>
+								</a>
+							</li>
+							<li class="mui-table-view-cell mui-media">
+								<a href="javascript:;">
+									<img class="mui-media-object mui-pull-left" src="../../images/serviceStore/tx4.jpg">
+									<div class="mui-media-body">
+										<p class='mui-ellipsis'>一汽丰田4S店-国信丰田</p>
+										<div class="mui-row storeAddress">
+											<span class="mui-col-sm-10 mui-col-xs-10">普陀区金沙路2023号</span>
+											<span class="mui-col-sm-2 mui-col-xs-2">1.2km</span>
+										</div>
+										<div class="mui-row appointment">
+											<span class="mui-col-sm-3 mui-col-xs-3">预约时间：</span>
+											<div class="mui-col-sm-6 mui-col-xs-6">
+												<input type="text" class="timeInput" />
+											</div>
+											<div class="mui-col-sm-3 mui-col-xs-3">
+												<div class="mui-btn mui-btn-primary appointmentBtn">
+													预约
+												</div>
+											</div>
+										</div>
+									</div>
+								</a>
+							</li>
+							<li class="mui-table-view-cell mui-media">
+								<a href="javascript:;">
+									<img class="mui-media-object mui-pull-left" src="../../images/serviceStore/tx5.jpg">
+									<div class="mui-media-body">
+										<p class='mui-ellipsis'>一汽丰田4S店-国信丰田</p>
+										<div class="mui-row storeAddress">
+											<span class="mui-col-sm-10 mui-col-xs-10">普陀区金沙路2023号</span>
+											<span class="mui-col-sm-2 mui-col-xs-2">1.2km</span>
+										</div>
+										<div class="mui-row appointment">
+											<span class="mui-col-sm-3 mui-col-xs-3">预约时间：</span>
+											<div class="mui-col-sm-6 mui-col-xs-6">
+												<input type="text" class="timeInput" />
+											</div>
+											<div class="mui-col-sm-3 mui-col-xs-3">
+												<div class="mui-btn mui-btn-primary appointmentBtn">
+													预约
+												</div>
+											</div>
+										</div>
+									</div>
+								</a>
+							</li>
+							<li class="mui-table-view-cell mui-media">
+								<a href="javascript:;">
+									<img class="mui-media-object mui-pull-left" src="../../images/serviceStore/tx6.jpg">
+									<div class="mui-media-body">
+										<p class='mui-ellipsis'>一汽丰田4S店-国信丰田</p>
+										<div class="mui-row storeAddress">
+											<span class="mui-col-sm-10 mui-col-xs-10">普陀区金沙路2023号</span>
+											<span class="mui-col-sm-2 mui-col-xs-2">1.2km</span>
+										</div>
+										<div class="mui-row appointment">
+											<span class="mui-col-sm-3 mui-col-xs-3">预约时间：</span>
+											<div class="mui-col-sm-6 mui-col-xs-6">
+												<input type="text" class="timeInput" />
+											</div>
+											<div class="mui-col-sm-3 mui-col-xs-3">
+												<div class="mui-btn mui-btn-primary appointmentBtn">
+													预约
+												</div>
+											</div>
+										</div>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</div>
 
-		<div class="downContent">
-			<div id="addressInfo" class="mui-row">
-				<div class="mui-col-xs-4" >
-					<div id="city" class="mui-segmented-control mui-segmented-control-inverted mui-segmented-control-vertical">
+					<div class="downContent">
+						<div id="addressInfo" class="mui-row">
+							<div class="mui-col-xs-4" >
+								<div id="city" class="mui-segmented-control mui-segmented-control-inverted mui-segmented-control-vertical">
+								</div>
+							</div>
+							<div id="segmentedControlContents" class="mui-col-xs-8">
+							</div>
+						</div>
+						<div id="sort" class="mui-row">
+							<div class="mui-col-xs-4">
+								<span class="sortDiv">距离最近</span>
+							</div>
+						</div>
 					</div>
 				</div>
-				<div id="segmentedControlContents" class="mui-col-xs-8" style="border-left: 1px solid #c8c7cc;">
-					<div id="item1" class="mui-control-content mui-active">
-					</div>
-					<div id="item2" class="mui-control-content">
-					</div>
-					<div id="item3" class="mui-control-content">
-					</div>
+				<div id="item2" class="mui-control-content">
+					<ul class="mui-table-view">
+						<li class="mui-table-view-cell mui-media">
+							<a href="javascript:;">
+								<img class="mui-media-object mui-pull-left" src="../../images/serviceStore/tx1.jpg">
+								<div class="mui-media-body">
+									<p class='mui-ellipsis'>一汽丰田4S店-国信丰田</p>
+									<div class="mui-row storeAddress">
+										<span class="mui-col-sm-10 mui-col-xs-10">普陀区金沙路2023号</span>
+										<span class="mui-col-sm-2 mui-col-xs-2">1.2km</span>
+									</div>
+									<div class="mui-row appointment">
+										<span class="mui-col-sm-3 mui-col-xs-3">预约时间：</span>
+										<div class="mui-col-sm-9 mui-col-xs-9">
+											2019-10-10 10:10
+										</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li class="mui-table-view-cell mui-media">
+							<a href="javascript:;">
+								<img class="mui-media-object mui-pull-left" src="../../images/serviceStore/tx2.jpg">
+								<div class="mui-media-body">
+									<p class='mui-ellipsis'>一汽丰田4S店-国信丰田</p>
+									<div class="mui-row storeAddress">
+										<span class="mui-col-sm-10 mui-col-xs-10">普陀区金沙路2023号</span>
+										<span class="mui-col-sm-2 mui-col-xs-2">1.2km</span>
+									</div>
+									<div class="mui-row appointment">
+										<span class="mui-col-sm-3 mui-col-xs-3">预约时间：</span>
+										<div class="mui-col-sm-9 mui-col-xs-9">
+											2019-10-10 10:10
+										</div>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li class="mui-table-view-cell mui-media">
+							<a href="javascript:;">
+								<img class="mui-media-object mui-pull-left" src="../../images/serviceStore/tx3.jpg">
+								<div class="mui-media-body">
+									<p class='mui-ellipsis'>一汽丰田4S店-国信丰田</p>
+									<div class="mui-row storeAddress">
+										<span class="mui-col-sm-10 mui-col-xs-10">普陀区金沙路2023号</span>
+										<span class="mui-col-sm-2 mui-col-xs-2">1.2km</span>
+									</div>
+									<div class="mui-row appointment">
+										<span class="mui-col-sm-3 mui-col-xs-3">预约时间：</span>
+										<div class="mui-col-sm-9 mui-col-xs-9">
+											2019-10-10 10:10
+										</div>
+									</div>
+								</div>
+							</a>
+						</li>
+					</ul>
 				</div>
 			</div>
 		</div>
 		<script src="../../js/frame/mui.min.js"></script>
+		<script src="../../js/frame/mui.picker.min.js"></script>
 		<script src="../../js/frame/jquery.min.js"></script>
 		<script src="../../js/frame/fastclick.js"></script>
 		<script src="../../js/frame/common.js"></script>
@@ -61,27 +275,39 @@
 				var downTitle = $( this ).attr("downContent");
 				var downMenu = $( "#"+ downTitle );
 				var spanIcon =  $( this ).find('.mui-icon');
-				if( downContent.css( "display" ) == "block" ){
+				if( spanIcon.hasClass("mui-icon-arrowdown") ){
+					$('.downContent>div').css("display","none");
+					if( downContent.css( "display" ) == "block" ){
+						downMenu.slideDown();
+						$(".nav .mui-icon").addClass( "mui-icon-arrowdown" );
+						$(".nav .mui-icon").removeClass( "mui-icon-arrowup" );
+
+						spanIcon.addClass( "mui-icon-arrowup" );
+						spanIcon.removeClass( "mui-icon-arrowdown" );
+					}else{
+						downContent.fadeIn();
+						downMenu.slideDown();
+						spanIcon.addClass( "mui-icon-arrowup" );
+						spanIcon.removeClass( "mui-icon-arrowdown" );
+					}
+				}else {
 					downContent.fadeOut();
 					downMenu.slideUp();
 					spanIcon.addClass( "mui-icon-arrowdown" );
 					spanIcon.removeClass( "mui-icon-arrowup" );
-				}else{
-					downContent.fadeIn();
-					downMenu.slideDown();
-					spanIcon.addClass( "mui-icon-arrowup" );
-					spanIcon.removeClass( "mui-icon-arrowdown" );
 				}
 			});
 			$(".downContent").on('click', function(eve){
 				$(this).fadeOut();
 				$(this).children("div").slideUp();
+				$(".nav .mui-icon").addClass( "mui-icon-arrowdown" );
+				$(".nav .mui-icon").removeClass( "mui-icon-arrowup" );
 			});
 
 			var controls = document.getElementById("city");
 			var contents = document.getElementById("segmentedControlContents");
 			var html = [];
-			for (i = 1; i < 10; i++) {
+			for (i = 1; i < 19; i++) {
 				var strA = '<a class="mui-control-item"  onclick="stopBubble( event )" href="#content' + i + '">选项' + i + '</a>';
 				html.push( strA );
 			}
@@ -104,6 +330,28 @@
 				FastClick.attach( document.getElementById("addressInfo") );
 			})
 			FastClick.attach(document.body);
+
+
+
+			function chooseTime( self ){
+				var _self = self;
+				if(_self.picker) {
+					_self.picker.show(function (rs) {
+						result.innerText = '选择结果: ' + rs.text;
+						_self.picker.dispose();
+						_self.picker = null;
+					});
+				} else {
+					var optionsJson = _self.getAttribute('data-options') || '{}';
+					var options = JSON.parse(optionsJson);
+					_self.picker = new mui.DtPicker(options);
+					_self.picker.show(function(rs) {
+						result.innerText = '选择结果: ' + rs.text;
+						_self.picker.dispose();
+						_self.picker = null;
+					});
+				}
+			}
 		</script>
 	</body>
 

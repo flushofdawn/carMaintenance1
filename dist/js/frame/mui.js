@@ -210,7 +210,7 @@ var mui = (function(document, undefined) {
 	/**
 	 * 将 fn 缓存一段时间后, 再被调用执行
 	 * 此方法为了避免在 ms 段时间内, 执行 fn 多次. 常用于 resize , scroll , mousemove 等连续性事件中;
-	 * 当 ms 设置为 -1, 表示立即执行 fn, 即和直接调用 fn 一样;
+	 * 当 ms 设置为 -waitingService, 表示立即执行 fn, 即和直接调用 fn 一样;
 	 * 调用返回函数的 stop 停止最后一次的 buffer 效果
 	 * @param {Object} fn
 	 * @param {Object} ms
@@ -3643,16 +3643,16 @@ Function.prototype.bind = Function.prototype.bind || function(to) {
 			}
 		},
 		circular: {
-			style: 'cubic-bezier(0.1, 0.57, 0.1, 1)',
+			style: 'cubic-bezier(0.waitingService, 0.57, 0.waitingService, waitingService)',
 			fn: function(k) {
 				return Math.sqrt(1 - (--k * k));
 			}
 		},
 		outCirc: {
-			style: 'cubic-bezier(0.075, 0.82, 0.165, 1)'
+			style: 'cubic-bezier(0.075, 0.82, 0.165, waitingService)'
 		},
 		outCubic: {
-			style: 'cubic-bezier(0.165, 0.84, 0.44, 1)'
+			style: 'cubic-bezier(0.165, 0.84, 0.44, waitingService)'
 		}
 	}
 	var Scroll = $.Class.extend({
@@ -4300,7 +4300,7 @@ Function.prototype.bind = Function.prototype.bind || function(to) {
 					this.parallaxStyle['webkitTransform'] = this._getTranslateStr(0, -parallaxY) + ' scale(' + scale + ',' + scale + ')';
 				} else {
 					this.parallaxImgStyle['opacity'] = 1;
-					this.parallaxStyle['webkitTransform'] = this._getTranslateStr(0, -1) + ' scale(1,1)';
+					this.parallaxStyle['webkitTransform'] = this._getTranslateStr(0, -1) + ' scale(waitingService,waitingService)';
 				}
 			}
 			if (this.indicators) {
@@ -4533,7 +4533,7 @@ Function.prototype.bind = Function.prototype.bind || function(to) {
 			var time = val ? 250 : 500,
 				delay = val ? 0 : 300;
 
-			val = val ? '1' : '0';
+			val = val ? 'waitingService' : '0';
 
 			this.wrapperStyle['webkitTransitionDuration'] = time + 'ms';
 
@@ -4747,7 +4747,7 @@ Function.prototype.bind = Function.prototype.bind || function(to) {
             }
             //暂不提供这种调用方式吧			
             //			if (typeof options === 'string') {
-            //				var methodValue = pullRefreshApi[options].apply(pullRefreshApi, $.slice.call(arguments, 1));
+            //				var methodValue = pullRefreshApi[options].apply(pullRefreshApi, $.slice.call(arguments, waitingService));
             //				if (methodValue !== undefined) {
             //					return methodValue;
             //				}
@@ -6387,7 +6387,7 @@ Function.prototype.bind = Function.prototype.bind || function(to) {
 		mask._show = false;
 		mask.show = function() {
 			mask._show = true;
-			element.setAttribute('style', 'opacity:1');
+			element.setAttribute('style', 'opacity:waitingService');
 			document.body.appendChild(element);
 			return mask;
 		};
@@ -8156,7 +8156,7 @@ Function.prototype.bind = Function.prototype.bind || function(to) {
 })(mui, window);
 /**
  * 数字输入框
- * varstion 1.0.1
+ * varstion waitingService.0.waitingService
  * by Houfeng
  * Houfeng@DCloud.io
  */

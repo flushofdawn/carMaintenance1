@@ -1,0 +1,32 @@
+body{
+	background-color: #efeff4;
+}
+.mui-card-header{
+	color: #007AFF;
+	font-size: 14px;
+	padding: 10px;
+	min-height: auto;
+	background: url("../../images/confirmed/list.png") no-repeat 8px 12px;
+	padding-left: 26px;
+}
+.mui-card-link{
+	color: #007aff;
+}
+.mui-card-content-inner{
+	padding: 12px 10px;
+}
+.mui-card-content-inner{
+	line-height: 2rem;
+}
+.timeInput{
+	width: auto !important;
+	line-height: 2rem !important;
+	height: 2rem !important;
+	margin: 0.2rem 0 !important;
+	padding: 2px 8px !important;
+	font-size: 14px;
+}
+.remindInfo{
+	color: #999999;
+	font-size: 1rem;
+}

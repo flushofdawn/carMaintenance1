@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title></title>
+  </head>
+  <body>
+  <input type="button" value="定位" onclick = "test()"/>
+  <div id="container"></div>
+  <script type="text/javascript" src="../js/frame/jquery.min.js"></script>
+  <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.15&key=e16e9ed4aa1da3d363b2bcfed6082e9e"></script>
+  <script type="text/javascript">
+    AMap.plugin('AMap.Geolocation', function() {
+      var geolocation = new AMap.Geolocation({
+        enableHighAccuracy: true,//是否使用高精度定位，默认:true
+        timeout: 1000000,          //超过10秒后停止定位，默认：5s
+        buttonPosition:'RB',    //定位按钮的停靠位置
+        buttonOffset: new AMap.Pixel(10, 20),//定位按钮与设置的停靠位置的偏移量，默认：Pixel(10, 20)
+        zoomToAccuracy: true,   //定位成功后是否自动调整地图视野到定位点
+
+      });
+      geolocation.getCurrentPosition(function(status,result){
+        if(status=='complete'){
+          console.log( result )
+          onComplete(result)
+        }else{
+          console.log( result );
+          onError(result)
+        }
+      });
+    });
+    //解析定位结果
+    function onComplete(data) {
+      console.log( data.position )
+      getOutlets(data.position);
+    }
+    //解析定位错误信息
+    function onError(data) {
+      document.getElementById('status').innerHTML='定位失败'
+      document.getElementById('result').innerHTML = '失败原因排查信息:'+data.message;
+    }
+
+
+    function getOutlets(curpoint){
+      console.log( curpoint );
+      $.ajax({
+        type: 'POST',
+        url: "/view/getOutlets",
+        dataType:"json",
+        success: function(data){
+          console.log( data )
+          if(data.code == "000000"){
+            var list = data.data;
+            for(var i = 0 ;i < list.length;i++){
+              var outlets = list[i];
+              var lng = outlets.outletsLongitude;
+              var lat = outlets.outletsLatitude;
+              var point = new AMap.LngLat(lng,lat)
+              var distance = Math.round(AMap.GeometryUtil.distance(point,curpoint));
+              list[i].distance=distance;
+            }
+            list.sort(function(p1,p2){
+              return p1.distance-p2.distance;
+            });
+
+            console.log(list);
+          }
+        }
+      });
+    }
+
+  </script>
+  </body>
+</html>

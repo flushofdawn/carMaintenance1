@@ -6,7 +6,6 @@ html {
     /* 解决IOS默认滑动很卡的情况 */
     -webkit-overflow-scrolling : touch;
     font-size: 12px;
-    background-color: #FFF;
 }
 /* 禁止缩放表单 */
 input[type="submit"], input[type="reset"], input[type="button"], input {
@@ -81,4 +80,10 @@ img {
 }
 input{
     font-family: 'Microsoft YaHei';
+}
+*::-webkit-scrollbar {
+    display: none;
+}
+.mui-title{
+    color: #666;
 }
