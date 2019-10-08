@@ -1,6 +1,9 @@
 body{
     background-color: #efeff4;
 }
+.mui-content{
+    padding-bottom: 44px;
+}
 .mui-card-header>p{
     font-size: 17px;
     color: #333;
