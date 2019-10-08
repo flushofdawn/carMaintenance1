@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>图片上传预览功能</title>
+</head>
+<body>
+<input id='inp' capture="camera" accept="image/*" type="file" name="">
+<img src="" id="img">
+</body>
+<script type="text/javascript">
+    var dom_inp = document.getElementById('inp');
+    var imgs = document.getElementById('img');
+    var img_url,imgSrc;
+    var window_url;
+
+    var filereads = new FileReader();
+    dom_inp.onchange = function(e){
+//  只能设定  c:/
+/*
+        img_url = e.target.value.split("\\");
+        imgSrc = 'C:/Users/Administrator/Desktop/' + img_url[2];
+
+        if(imgSrc.indexOf('.jpg') != -1 || imgSrc.indexOf('png') != -1){
+            imgs.src= imgSrc;
+        }else{
+            alert('错误的图片格式');
+        }*/
+
+// 正确显示
+
+        function geturl(file){
+            window_url = window.webkitURL.createObjectURL(file)
+            console.log( window_url );
+            return window_url;
+        }
+
+        imgs.src = geturl(this.files[0]);
+    }
+
+
+
+
+</script>
+</html>

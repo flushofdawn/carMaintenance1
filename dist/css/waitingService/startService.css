@@ -1,0 +1,24 @@
+body{
+    background-color: #efeff4;
+}
+.mui-card-header>p{
+    font-size: 17px;
+    color: #333;
+}
+.fontBold{
+    font-weight: bold;
+}
+.imgArea{
+    margin-top: 10px;
+    height: 50vw;
+    background-color: #c7c7cc;
+    background: url("../../images/waitingService/img.png") no-repeat;
+    background-size:contain;
+    overflow: hidden;
+}
+.imgArea>img{
+    width: 100%;
+}
+.process_opt{
+    margin-bottom: 10px;
+}

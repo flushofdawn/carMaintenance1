@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<title></title>
+		<link href="../../css/frame/mui.min.css" rel="stylesheet" />
+		<link href="../../css/frame/mui.picker.min.css" rel="stylesheet" />
+		<link href="../../css/frame/app.css" rel="stylesheet" />
+		<link href="../../css/frame/common.css" rel="stylesheet" />
+		<link href="../../css/waitingService/startService.css" rel="stylesheet" />
+	</head>
+	<body class="mui-ios mui-ios-10 mui-ios-10-3">
+		<header class="mui-bar mui-bar-nav">
+			<h1 class="mui-title">开始服务</h1>
+		</header>
+		<div class="mui-content">
+			<div class="mui-card">
+				<div class="mui-card-header">
+					<span class="fontBold">单号信息</span>
+				</div>
+				<div class="mui-card-content">
+					<div class="mui-card-content-inner">
+						<span class="fontBold">预约单号</span>：20190910080000123<br />
+						<span class="fontBold">下单时间</span>：2019-09-10 08:00:00 <br />
+						<span class="fontBold">预约时间</span>：2019-09-10 08:00:00 <br />
+						<span class="fontBold">服务项目</span>：汽油发动机安全检查 <br />
+						<span class="fontBold">客户姓名</span>：**<br />
+						<span class="fontBold">客户手机号</span>：13333333333
+					</div>
+				</div>
+			</div>
+			<div class="mui-card">
+				<div class="mui-card-header">
+					<span class="fontBold">使用产品</span>
+				</div>
+				<div class="mui-card-content">
+					<div class="mui-card-content-inner">
+						<table class="mui-table">
+							<thead class="mui-table--header">
+							<tr>
+								<th>名称</th>
+								<th>编码</th>
+								<th>容量</th>
+							</tr>
+							</thead>
+							<tbody>
+							<tr>
+								<td>美孚金装4L</td>
+								<td>mf-Jz-4</td>
+								<td>4L</td>
+							</tr>
+							<tr>
+								<td>美孚金装1L</td>
+								<td>mf-Jz-1</td>
+								<td>1L</td>
+							</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="mui-card">
+				<div class="mui-card-header">
+					<span class="fontBold">车辆进店记录</span>
+				</div>
+				<div class="mui-card-content">
+					<div class="mui-card-content-inner">
+						<div class="mui-btn mui-btn-primary uploadBtn">
+							拍照上传
+							<input class="mui-hidden uploadInput" capture="camera" order="0" accept="image/*" type="file" name="">
+						</div>
+						<div class="imgArea">
+							<img src="">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="mui-card">
+				<div class="mui-card-header">
+					<span class="fontBold">服务过程记录</span>
+				</div>
+				<div class="mui-card-content">
+					<div class="mui-card-content-inner">
+						<div class="process_opt">
+							<div class="mui-btn mui-btn-primary uploadBtn">
+								拍照上传
+								<input class="mui-hidden uploadInput" capture="camera" order="1" accept="image/*" type="file" name="">
+							</div>
+							<div class="imgArea">
+								<img src="">
+							</div>
+						</div>
+						<div class="process_opt">
+							<div class="mui-btn mui-btn-primary uploadBtn">
+								拍照上传
+								<input class="mui-hidden uploadInput" capture="camera" order="2" accept="image/*" type="file" name="">
+							</div>
+							<div class="imgArea">
+								<img src="">
+							</div>
+						</div>
+						<div class="process_opt">
+							<div class="mui-btn mui-btn-primary uploadBtn">
+								拍照上传
+								<input class="mui-hidden uploadInput" capture="camera" order="3" accept="image/*" type="file" name="">
+							</div>
+							<div class="imgArea">
+								<img src="">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="mui-card">
+				<div class="mui-card-header">
+					<span class="fontBold">服务结束记录</span>
+				</div>
+				<div class="mui-card-content">
+					<div class="mui-card-content-inner">
+						<div class="mui-btn mui-btn-primary uploadBtn">
+							拍照上传
+							<input class="mui-hidden uploadInput" capture="camera" order="4" accept="image/*" type="file" name="">
+						</div>
+						<div class="imgArea">
+							<img src="">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="../../js/frame/mui.min.js"></script>
+		<script src="../../js/frame/mui.picker.min.js"></script>
+		<script src="../../js/frame/jquery.min.js"></script>
+		<script src="../../js/frame/common.js"></script>
+		<script src="../../js/waitingService/startService.js"></script>
+		<script>
+			var fileList = [];  //保存图片的变量
+
+			$( ".uploadBtn" ).on("click",function () {
+				$( this ).children( "input" )[0].click()
+			})
+			$( ".uploadInput" ).on("change",function () {
+				var order = $( this ).attr("order");
+				var reader=new FileReader();
+				reader.onload = function(evt) {
+					fileList[ order ] = evt.target.result;
+				};
+				reader.readAsDataURL( this.files[0] )
+
+				var imgs = $(this).parent(".uploadBtn").next(".imgArea").children("img")[0];
+				function geturl(file){
+					var myurl = window.URL || window.webkitURL || window.mozURL;
+					window_url = myurl.createObjectURL(file);
+					console.log( window_url );
+					return window_url;
+				}
+				imgs.src = geturl(this.files[0]);
+			})
+		</script>
+	</body>
+
+</html>

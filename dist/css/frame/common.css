@@ -5,7 +5,7 @@ html {
     -ms-text-size-adjust: 100%;
     /* 解决IOS默认滑动很卡的情况 */
     -webkit-overflow-scrolling : touch;
-    font-size: 12px;
+    font-size: 14px;
 }
 /* 禁止缩放表单 */
 input[type="submit"], input[type="reset"], input[type="button"], input {
@@ -86,4 +86,16 @@ input{
 }
 .mui-title{
     color: #666;
+}
+.mui-table{
+    border-left: 1px solid #E9E9E9;
+    border-top: 1px solid #E9E9E9;
+}
+.mui-table th{
+    background-color: #F4F4F4;
+}
+.mui-table td,.mui-table th{
+    padding: 8px;
+    border-right: 1px solid #E9E9E9;
+    border-bottom: 1px solid #E9E9E9;
 }
