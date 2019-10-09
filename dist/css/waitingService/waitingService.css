@@ -39,3 +39,38 @@ body{
 	padding: 0;
 	font-size: 1rem;
 }
+
+
+.searchDiv{
+	margin-bottom: 10px;
+}
+.search_font{
+	width: 25% !important;
+	line-height: 36px;
+	height: 36px;
+	color: white;
+	font-size: 15px;
+	text-align: center;
+	background-color: #007aff;
+}
+.search_input{
+	background-color: white !important;
+	line-height: 36px !important;
+	height: 36px !important;
+	border-radius: 0 !important;
+	border: 1px solid #007aff !important;
+	margin-bottom: 0!important;
+	width: 75% !important;
+	padding: 10px 15px !important;
+}
+.searchDiv .mui-icon-clear{
+	top: 9px !important;
+}
+.search .mui-btn{
+	background-color: #007aff;
+	padding: 0;
+	line-height: 38px;
+	color: #FFF;
+	border: none;
+	border-radius: 0;
+}
