@@ -1,0 +1,91 @@
+body{
+    background-color: #efeff4;
+}
+.search{
+    margin: 10px;
+}
+.mui-card-header{
+    color: #007AFF;
+    font-size: 14px;
+    padding: 10px;
+    min-height: auto;
+    background: url("../../images/confirmed/list.png") no-repeat 10px 12px;
+    padding-left: 28px;
+}
+.mui-card-link{
+    color: #007aff;
+}
+.mui-card-content-inner{
+    padding: 12px 10px;
+}
+.mui-card-footer .mui-btn{
+    margin: 0 auto;
+}
+.timeInput{
+    width: 95% !important;
+    line-height: 2rem !important;
+    height: 2rem !important;
+    margin: 0.2rem 0 !important;
+    padding: 5px 10px !important;
+    font-size: 1rem;
+}
+.appointmentBtn{
+    width: 100%;
+    margin: 0.2rem 0 !important;
+    height: 2rem !important;
+    line-height: 1.9rem !important;
+    padding: 0;
+    font-size: 1rem;
+}
+.searchDiv{
+    margin-bottom: 10px;
+}
+.search_font{
+    width: 25% !important;
+    line-height: 36px;
+    height: 36px;
+    color: white;
+    font-size: 15px;
+    text-align: center;
+    background-color: #007aff;
+}
+.search_input{
+    background-color: white !important;
+    line-height: 36px !important;
+    height: 36px !important;
+    border-radius: 0 !important;
+    border: 1px solid #007aff !important;
+    margin-bottom: 0!important;
+    width: 75% !important;
+    padding: 10px 15px !important;
+}
+.searchDiv .mui-icon-clear{
+    top: 9px !important;
+}
+.search .mui-btn{
+    background-color: #007aff;
+    padding: 0;
+    line-height: 38px;
+    color: #FFF;
+    border: none;
+    border-radius: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

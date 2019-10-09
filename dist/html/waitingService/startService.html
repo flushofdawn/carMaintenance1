@@ -28,7 +28,8 @@
 						<span class="fontBold">预约时间</span>：2019-09-10 08:00:00 <br />
 						<span class="fontBold">服务项目</span>：汽油发动机安全检查 <br />
 						<span class="fontBold">客户姓名</span>：**<br />
-						<span class="fontBold">客户手机号</span>：13333333333
+						<span class="fontBold">客户手机号</span>：13333333333<br />
+						<span class="fontBold">到店时间</span>：<input type="text" class="timeInput" readonly onclick="chooseTime(this)" /><br />
 					</div>
 				</div>
 			</div>
@@ -167,6 +168,22 @@
 				}
 				imgs.src = geturl(this.files[0]);
 			})
+
+            function chooseTime( self ){
+                var _self = self;
+                if(_self.picker) {
+                    _self.picker.show(function (rs) {
+                        $( _self ).val( rs.text )
+                    });
+                } else {
+                    var optionsJson = _self.getAttribute('data-options') || '{}';
+                    var options = JSON.parse(optionsJson);
+                    _self.picker = new mui.DtPicker(options);
+                    _self.picker.show(function(rs) {
+                        $( _self ).val( rs.text )
+                    });
+                }
+            }
 		</script>
 	</body>
 
