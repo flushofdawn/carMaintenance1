@@ -1,0 +1,32 @@
+body{
+	background-color: #efeff4;
+}
+.mui-card-header{
+	color: #007AFF;
+	font-size: 14px;
+	padding: 10px;
+	min-height: auto;
+	background: url("../../images/appraise/appraise.png") no-repeat 10px 11px;
+	padding-left: 32px;
+}
+.mui-card-link{
+	color: #007aff;
+}
+.mui-card-content-inner{
+	padding: 12px 10px;
+}
+.mui-card-footer .mui-btn{
+	margin: 0 auto;
+}
+.timeInput{
+	width: auto !important;
+	line-height: 2rem !important;
+	height: 2rem !important;
+	margin: 0.2rem 0 !important;
+	padding: 5px 10px !important;
+	font-size: 1rem;
+}
+.textCard{
+	text-indent:25px;
+	padding-bottom: 20px;
+}
