@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<title></title>
+		<link href="../css/frame/mui.min.css" rel="stylesheet" />
+		<link href="../css/frame/mui.picker.min.css" rel="stylesheet" />
+		<link href="../css/frame/app.css" rel="stylesheet" />
+		<link href="../css/frame/common.css" rel="stylesheet" />
+		<link href="../css/waitingService/startService.css" rel="stylesheet" />
+		<style>
+			.imgArea>canvas{
+				width: 100%;
+				height: 50vw;
+			}
+		</style>
+	</head>
+	<body class="mui-ios mui-ios-10 mui-ios-10-3">
+		<header class="mui-bar mui-bar-nav">
+			<h1 class="mui-title">开始服务</h1>
+		</header>
+		<div class="mui-content">
+			<div class="mui-card">
+				<div class="mui-card-header">
+					<span class="fontBold">车辆进店记录</span>
+				</div>
+				<div class="mui-card-content">
+					<div class="mui-card-content-inner">
+						<div class="mui-btn mui-btn-primary uploadBtn">
+							拍照上传
+							<input class="mui-hidden uploadInput" capture="camera" order="0" accept="image/*" type="file" name="">
+						</div>
+						<div class="imgArea">
+							<canvas id="myCanvas" >如果你看到这一段话，说明你浏览器版本太低，请更新...</canvas>
+						</div>
+						<div class="imgArea">
+							<img id="myImg" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="../js/frame/mui.min.js"></script>
+		<script src="../js/frame/mui.picker.min.js"></script>
+		<script src="../js/frame/jquery.min.js"></script>
+		<script src="../js/frame/common.js"></script>
+		<script src="../js/waitingService/startService.js"></script>
+		<script>
+			var fileList = [];  //保存图片的变量\
+			var strDataURI;
+			// 画布创建
+			var myCanvas = document.getElementById("myCanvas");
+			var pen=myCanvas.getContext("2d");
+
+			$( ".uploadBtn" ).on("click",function () {
+				$( this ).children( "input" )[0].click()
+			})
+			$( ".uploadInput" ).on("change",function () {
+				createURLImg( $(this)[0].files );
+			})
+			function createURLImg(file,callback) {
+				var imgUrl= createObjectURL( file[0] );
+
+				var image=new Image();
+				image.src=imgUrl;
+				image.onload=function (ev) {
+					pen.drawImage(image,0,0,myCanvas.width,myCanvas.height);
+					strDataURI = myCanvas.toDataURL();
+
+					if(callback) {
+						callback();
+					}
+					revokeObjectURL( imgUrl )
+				}
+
+
+			}
+			function createObjectURL(object) {
+				return (window.URL) ? window.URL.createObjectURL(object) : window.webkitURL.createObjectURL(object);
+			}
+			function revokeObjectURL(object) {
+				return (window.URL) ? window.URL.revokeObjectURL(object) : window.webkitURL.revokeObjectURL(object);
+			}
+		</script>
+	</body>
+</html>
