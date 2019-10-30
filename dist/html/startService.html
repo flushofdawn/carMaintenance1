@@ -63,16 +63,21 @@
 			})
 			function createURLImg(file,callback) {
 				var imgUrl= createObjectURL( file[0] );
-
 				var image=new Image();
 				image.src=imgUrl;
+
+				$("#myImg").attr('src', imgUrl );
+
+				$("#myImg").on("load",function(){
+					console.log( $("#myImg").width() +"   -   "+ $("#myImg").height())
+				});
+
 				image.onload=function (ev) {
 					pen.drawImage(image,0,0,myCanvas.width,myCanvas.height);
 					strDataURI = myCanvas.toDataURL();
 
 					if(callback) {
 						callback();
-
 					}
 					revokeObjectURL( imgUrl )
 				}
