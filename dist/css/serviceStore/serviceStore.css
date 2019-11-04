@@ -138,4 +138,10 @@
 	font-size: 1rem;
 }
 
+#pullrefresh{
+	top: 6.14rem;
+}
+.mui-bar-nav~.mui-content .mui-pull-top-pocket{
+	top: 0!important;
+}
 

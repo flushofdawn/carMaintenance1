@@ -119,3 +119,7 @@ input{
     margin-left: -1.3rem;
     margin-top: -1.3rem;
 }
+
+.mui-pull-bottom-pocket{
+    height: 0;
+}

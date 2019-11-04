@@ -11,9 +11,6 @@
 		<link href="../../css/serviceStore/serviceStore.css" rel="stylesheet" />
 	</head>
 	<body>
-		<div id="loading">
-			<img class="loadImg" src="../../images/loading.gif" />
-		</div>
 		<header class="mui-bar mui-bar-nav">
 			<h1 class="mui-title">服务预约</h1>
 		</header>
@@ -40,8 +37,54 @@
 							<div>排序<span class="mui-icon mui-icon-arrowdown"></span></div>
 						</div>
 					</div>
-					<div class="content">
+					<div class="content mui-scroll-wrapper" id="pullrefresh">
 						<ul class="mui-table-view">
+							<li class="mui-table-view-cell mui-media">
+								<a href="javascript:;">
+									<img class="mui-media-object mui-pull-left" src="../../images/serviceStore/tx1.jpg">
+									<div class="mui-media-body">
+										<p class='mui-ellipsis'>一汽丰田4S店-国信丰田</p>
+										<div class="mui-row storeAddress">
+											<span class="mui-col-sm-10 mui-col-xs-10">普陀区金沙路2023号</span>
+											<span class="mui-col-sm-2 mui-col-xs-2">1.2km</span>
+										</div>
+										<div class="mui-row appointment">
+											<span class="mui-col-sm-3 mui-col-xs-3">预约时间：</span>
+											<div class="mui-col-sm-6 mui-col-xs-6">
+												<input type="text" class="timeInput" readonly onclick="chooseTime(this)" />
+											</div>
+											<div class="mui-col-sm-3 mui-col-xs-3">
+												<div class="mui-btn mui-btn-primary appointmentBtn">
+													预约
+												</div>
+											</div>
+										</div>
+									</div>
+								</a>
+							</li>
+							<li class="mui-table-view-cell mui-media">
+								<a href="javascript:;">
+									<img class="mui-media-object mui-pull-left" src="../../images/serviceStore/tx1.jpg">
+									<div class="mui-media-body">
+										<p class='mui-ellipsis'>一汽丰田4S店-国信丰田</p>
+										<div class="mui-row storeAddress">
+											<span class="mui-col-sm-10 mui-col-xs-10">普陀区金沙路2023号</span>
+											<span class="mui-col-sm-2 mui-col-xs-2">1.2km</span>
+										</div>
+										<div class="mui-row appointment">
+											<span class="mui-col-sm-3 mui-col-xs-3">预约时间：</span>
+											<div class="mui-col-sm-6 mui-col-xs-6">
+												<input type="text" class="timeInput" readonly onclick="chooseTime(this)" />
+											</div>
+											<div class="mui-col-sm-3 mui-col-xs-3">
+												<div class="mui-btn mui-btn-primary appointmentBtn">
+													预约
+												</div>
+											</div>
+										</div>
+									</div>
+								</a>
+							</li>
 							<li class="mui-table-view-cell mui-media">
 								<a href="javascript:;">
 									<img class="mui-media-object mui-pull-left" src="../../images/serviceStore/tx1.jpg">
@@ -199,7 +242,7 @@
 						</div>
 					</div>
 				</div>
-				<div id="item2" class="mui-control-content">
+				<div id="item2" class="mui-control-content mui-scroll-wrapper">
 					<ul class="mui-table-view">
 						<li class="mui-table-view-cell mui-media">
 							<a href="javascript:;">
@@ -270,8 +313,52 @@
 			})
 
 			mui.init({
-				swipeBack: true //启用右滑关闭功能
+				swipeBack: true, //启用右滑关闭功能
 			});
+
+			/*  附近网点下拉刷新  */
+			mui("#pullrefresh").pullRefresh({
+				down: {
+					style:'circle',
+					callback: pulldownRefresh
+				},
+				up: {
+					contentrefresh: '正在加载...',
+					callback: pullupRefresh
+				}
+			});
+			function pulldownRefresh() {
+				setTimeout(function() {
+					mui('#pullrefresh').pullRefresh().endPulldownToRefresh();
+					mui.toast("刷新完成");
+				}, 1500);
+			}
+			function pullupRefresh(){
+				mui('#pullrefresh').pullRefresh().endPullupToRefresh();
+			}
+			/*  我的预约下拉刷新  */
+			mui("#item2").pullRefresh({
+				down: {
+					style:'circle',
+					callback: pulldownRefresh2
+				},
+				up: {
+					contentrefresh: '正在加载...',
+					callback: pullupRefresh2
+				}
+			});
+			function pulldownRefresh2() {
+				setTimeout(function() {
+					mui('#item2').pullRefresh().endPulldownToRefresh();
+					mui.toast("刷新完成");
+				}, 1500);
+			}
+			function pullupRefresh2(){
+				mui('#item2').pullRefresh().endPullupToRefresh();
+			}
+
+
+
 			var menu = $(".menu");
 			var downContent = $('.downContent');
 			menu.on('tap', function(eve){
