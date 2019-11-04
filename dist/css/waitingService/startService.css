@@ -19,6 +19,26 @@ body{
     background-size:contain;
     overflow: hidden;
 }
+.allScreen{
+    margin: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000000000000000;
+    background-image: none;
+    background-color: #000000;
+
+}
+.allScreen>img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 .imgArea>img{
     width: 100%;
 }

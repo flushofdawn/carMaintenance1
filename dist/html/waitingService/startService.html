@@ -147,7 +147,17 @@
 		<script src="../../js/waitingService/startService.js"></script>
 		<script>
 			var fileList = [];  //保存图片的变量
-
+			$(".imgArea").on("click",function () {
+				if( $(this).children("img").attr("src") == "" || $(this).children("img").attr("src") == undefined ){
+					mui.alert('请先上传图片', '提示' );
+				} else {
+					if( $(this).hasClass("allScreen") ){
+						$(this).removeClass("allScreen");
+					}else{
+						$(this).addClass("allScreen");
+					}
+				}
+			});
 			$( ".uploadBtn" ).on("click",function () {
 				$( this ).children( "input" )[0].click()
 			})
