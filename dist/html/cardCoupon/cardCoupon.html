@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html class="ui-page-login">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+	<link href="../../css/frame/mui.min.css" rel="stylesheet" />
+	<link href="../../css/frame/mui.picker.min.css" rel="stylesheet" />
+	<link href="../../css/frame/common.css" rel="stylesheet" />
+	<link href="../../css/cardCoupon/cardCoupon.css" rel="stylesheet" />
+</head>
+<body>
+<div class="mui-content">
+	<div class="header">
+		<div id="segmentedControl" class="mui-segmented-control">
+			<a class="mui-control-item mui-active" href="#item1">有效卡劵</a>
+			<a class="mui-control-item" href="#item2">无效卡券</a>
+		</div>
+	</div>
+	<div class="tabT1">
+		<div id="item1" class="mui-control-content mui-active">
+			<div class="content mui-scroll-wrapper" id="pullrefresh">
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell mui-media">
+						<div class="title">
+							发动机检测
+						</div>
+						<div class="content_card">
+							已用1次 剩余1次 <br>
+							<b>有效期：</b>2019-01-01 至 2019-12-31
+						</div>
+					</li>
+					<li class="mui-table-view-cell mui-media">
+						<div class="title">
+							发动机检测
+						</div>
+						<div class="content_card">
+							已用1次 剩余1次 <br>
+							<b>有效期：</b>2019-01-01 至 2019-12-31
+						</div>
+					</li>
+					<li class="mui-table-view-cell mui-media">
+						<div class="title">
+							发动机检测
+						</div>
+						<div class="content_card">
+							已用1次 剩余1次 <br>
+							<b>有效期：</b>2019-01-01 至 2019-12-31
+						</div>
+					</li>
+					<li class="mui-table-view-cell mui-media">
+						<div class="title">
+							发动机检测
+						</div>
+						<div class="content_card">
+							已用1次 剩余1次 <br>
+							<b>有效期：</b>2019-01-01 至 2019-12-31
+						</div>
+					</li>
+					<li class="mui-table-view-cell mui-media">
+						<div class="title">
+							发动机检测
+						</div>
+						<div class="content_card">
+							已用1次 剩余1次 <br>
+							<b>有效期：</b>2019-01-01 至 2019-12-31
+						</div>
+					</li>
+					<li class="mui-table-view-cell mui-media">
+						<div class="title">
+							发动机检测
+						</div>
+						<div class="content_card">
+							已用1次 剩余1次 <br>
+							<b>有效期：</b>2019-01-01 至 2019-12-31
+						</div>
+					</li>
+					<li class="mui-table-view-cell mui-media">
+						<div class="title">
+							发动机检测
+						</div>
+						<div class="content_card">
+							已用1次 剩余1次 <br>
+							<b>有效期：</b>2019-01-01 至 2019-12-31
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div id="item2" class="mui-control-content mui-scroll-wrapper">
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell mui-media">
+					<div class="title">
+						发动机检测
+					</div>
+					<div class="content_card">
+						已用1次 剩余1次 <br>
+						<b>有效期：</b>2019-01-01 至 2019-12-31
+					</div>
+					<div class="loseEff">
+						已过期
+					</div>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<div class="title">
+						发动机检测
+					</div>
+					<div class="content_card">
+						已用1次 剩余1次 <br>
+						<b>有效期：</b>2019-01-01 至 2019-12-31
+					</div>
+					<div class="loseEff">
+						已过期
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+<nav class="mui-bar mui-bar-tab footer">
+	<div class="mui-btn mui-btn-primary mui-btn-block">激活卡券</div>
+</nav>
+<script src="../../js/frame/mui.min.js"></script>
+<script src="../../js/frame/mui.picker.min.js"></script>
+<script src="../../js/frame/jquery.min.js"></script>
+<script src="../../js/frame/fastclick.js"></script>
+<script src="../../js/frame/common.js"></script>
+<script>
+	$(function () {
+
+	})
+
+	mui.init({
+		swipeBack: true, //启用右滑关闭功能
+	});
+
+	/*  附近网点下拉刷新  */
+	mui("#pullrefresh").pullRefresh({
+		down: {
+			style:'circle',
+			callback: pulldownRefresh
+		},
+		up: {
+			contentrefresh: '正在加载...',
+			callback: pullupRefresh
+		}
+	});
+	function pulldownRefresh() {
+		setTimeout(function() {
+			mui('#pullrefresh').pullRefresh().endPulldownToRefresh();
+			mui.toast("刷新完成");
+		}, 1500);
+	}
+	function pullupRefresh(){
+		mui('#pullrefresh').pullRefresh().endPullupToRefresh();
+	}
+	/*  我的预约下拉刷新  */
+	mui("#item2").pullRefresh({
+		down: {
+			style:'circle',
+			callback: pulldownRefresh2
+		},
+		up: {
+			contentrefresh: '正在加载...',
+			callback: pullupRefresh2
+		}
+	});
+	function pulldownRefresh2() {
+		setTimeout(function() {
+			mui('#item2').pullRefresh().endPulldownToRefresh();
+			mui.toast("刷新完成");
+		}, 1500);
+	}
+	function pullupRefresh2(){
+		mui('#item2').pullRefresh().endPullupToRefresh();
+	}
+
+
+
+	var menu = $(".menu");
+	var downContent = $('.downContent');
+	menu.on('tap', function(eve){
+		var downTitle = $( this ).attr("downContent");
+		var downMenu = $( "#"+ downTitle );
+		var spanIcon =  $( this ).find('.mui-icon');
+		if( spanIcon.hasClass("mui-icon-arrowdown") ){
+			$('.downContent>div').css("display","none");
+			if( downContent.css( "display" ) == "block" ){
+				downMenu.slideDown();
+				$(".nav .mui-icon").addClass( "mui-icon-arrowdown" );
+				$(".nav .mui-icon").removeClass( "mui-icon-arrowup" );
+
+				spanIcon.addClass( "mui-icon-arrowup" );
+				spanIcon.removeClass( "mui-icon-arrowdown" );
+			}else{
+				downContent.fadeIn();
+				downMenu.slideDown();
+				spanIcon.addClass( "mui-icon-arrowup" );
+				spanIcon.removeClass( "mui-icon-arrowdown" );
+			}
+		}else {
+			downContent.fadeOut();
+			downMenu.slideUp();
+			spanIcon.addClass( "mui-icon-arrowdown" );
+			spanIcon.removeClass( "mui-icon-arrowup" );
+		}
+	});
+	$(".downContent").on('click', function(eve){
+		$(this).fadeOut();
+		$(this).children("div").slideUp();
+		$(".nav .mui-icon").addClass( "mui-icon-arrowdown" );
+		$(".nav .mui-icon").removeClass( "mui-icon-arrowup" );
+	});
+
+
+	FastClick.attach(document.body);
+
+	function chooseTime( self ){
+		var _self = self;
+		if(_self.picker) {
+			_self.picker.show(function (rs) {
+				result.innerText = '选择结果: ' + rs.text;
+				_self.picker.dispose();
+				_self.picker = null;
+			});
+		} else {
+			var optionsJson = _self.getAttribute('data-options') || '{}';
+			var options = JSON.parse(optionsJson);
+			_self.picker = new mui.DtPicker(options);
+			_self.picker.show(function(rs) {
+				result.innerText = '选择结果: ' + rs.text;
+				_self.picker.dispose();
+				_self.picker = null;
+			});
+		}
+	}
+</script>
+</body>
+
+</html>
