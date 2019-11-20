@@ -118,15 +118,19 @@
 .mui-table-view{
 	background-color: inherit;
 }
-.mui-media{ 
-	margin: 10px;
+.cardContent{
+	box-shadow: 0 1px 2px rgba(0,0,0,.3);
 	height: 120px;
 	background: url("../../images/cardCoupon/cardBg.png") no-repeat  bottom -42px right -20px;
 	background-size: 100px 100px;
 	background-color: white;
 	border-radius: 8px;
+}
+.mui-media{
+	margin: 0;
+	padding: 10px;
+	padding-top: 0;
 	position: relative;
-	padding: 1px;
 }
 .mui-media:after,.mui-media:before{
 	width: 0;
@@ -136,18 +140,15 @@
 	border-radius: 10px;
 	border: 10px solid #efeff4;
 	top: 40%;
-	margin-top: -10px;
+	margin-top: -5px;
 	transform: none;
 	z-index: 10000;
 }
 .mui-media:after{
-	left: -10px;
+	left:  0 ;
 }
 .mui-media:before{
-	right: -10px;
-}
-.mui-media>div>div{
-	padding: 10px;
+	right:  0 ;
 }
 .mui-media>div>.mui-col-sm-3{
 	border-left: 1px dashed #ccc;
@@ -166,6 +167,7 @@
 	padding: 0 30px 0 50px;
 	background: url("../../images/cardCoupon/cardicon.png") no-repeat 14px 8px;
 	background-size: 32px 32px;
+	border-radius: 8px 8px 0 0;
 }
 .mui-media:nth-child(odd) .title{
 	background-color: #1296db;
@@ -178,8 +180,8 @@
 }
 .loseEff{
 	position: absolute;
-	right: 0;
-	top: 12px;
+	right: 10px;
+	top: 22px;
 	height: 1.3rem;
 	line-height: 1.3rem;
 	width: 60px;
@@ -202,4 +204,8 @@
 	top: 9px !important;
 	background-color: #f16527;
 	border: none;
+}
+.mui-table-view{
+	padding-top: 10px;
+	padding-bottom: 50px;
 }

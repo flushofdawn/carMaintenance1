@@ -1,0 +1,12 @@
+.content{
+	padding: 44px 0 50px 0;
+}
+.mui-table-view{
+	padding-bottom: 0;
+}
+.mui-card{
+	margin-top: 0;
+}
+.mui-card-content-inner,.mui-card-header{
+	color: #999;
+}
