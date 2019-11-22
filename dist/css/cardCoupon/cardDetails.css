@@ -10,3 +10,6 @@
 .mui-card-content-inner,.mui-card-header{
 	color: #999;
 }
+.mui-content>.mui-table-view:first-child{
+	margin-top: 0;
+}

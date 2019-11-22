@@ -93,6 +93,7 @@
 							<div class="imgArea">
 								<img src="">
 							</div>
+							<div id="base64"></div>
 						</div>
 						<div class="process_opt">
 							<div class="mui-btn mui-btn-primary uploadBtn">
@@ -164,8 +165,14 @@
 			$( ".uploadInput" ).on("change",function () {
 				var order = $( this ).attr("order");
 				var reader=new FileReader();
+
 				reader.onload = function(evt) {
 					fileList[ order ] = evt.target.result;
+
+
+
+
+
 				};
 				reader.readAsDataURL( this.files[0] )
 

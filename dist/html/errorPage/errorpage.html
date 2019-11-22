@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html class="ui-page-login">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link href="../../css/frame/mui.min.css" rel="stylesheet" />
+	</head>
+	<style>
+		body,.mui-content{
+			background: #F8F8F8 !important;
+		}
+		.error_img{
+			margin-top: 10%;
+		}
+		.error_img img{
+			width: 100%;
+			margin-left: -10px;
+		}
+		.return{
+			padding: 0 3rem;
+			word-break:break-all;
+			text-align: center;
+		}
+		.return .error_code{
+			font-weight: bold;
+			color: #666666 !important;
+			font-size: 1.1rem;
+		}
+		.daily{
+			margin-top: 20px;
+			color: #666666 !important;
+			word-break:break-all;
+			padding: 0 3rem;
+		}
+	</style>
+	<body>
+	<div class="mui-content">
+		<div class="error_img">
+			<img src="../../images/error/error.jpg"  />
+		</div>
+		<div class="">
+
+		</div>
+		<div class="return">
+			 <span class="error_code" id="error_code"> </span>
+		</div>
+		<div class="daily">
+			111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
+		</div>
+	</div>
+		<script src="../../js/frame/mui.min.js"></script>
+		<script src="../../js/frame/jquery.min.js"></script>
+		<script>
+			$( document ).ready(function () {
+				errorCode( 404 )
+			})
+			function errorCode( code ){
+				var errorInfo = '';
+				switch (code){
+					case 400: errorInfo = "错误代码：400 ( 错误请求 )"; break;
+					case 401: errorInfo = "错误代码：401 ( 未授权 )"; break;
+					case 403: errorInfo = "错误代码：403 ( 服务器拒绝请求 )"; break;
+					case 404: errorInfo = "错误代码：403 ( 服务器找不到网页 )"; break;
+					case 408: errorInfo = "错误代码：403 ( 服务器请求超时 )"; break;
+					case 500: errorInfo = "错误代码：403 ( 服务器内部错误 )"; break;
+					case 503: errorInfo = "错误代码：403 ( 服务不可用 )"; break;
+					case 504: errorInfo = "错误代码：403 ( 网关超时 )"; break;
+					default : errorInfo = "错误代码："+ code +" ( 页面访问出错 )"; break;
+				}
+				$( "#error_code" ).text( errorInfo );
+			}
+		</script>
+	</body>
+
+</html>

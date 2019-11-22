@@ -1,6 +1,10 @@
 /**
  * Created by 89561 on 2019/10/4.
  */
+$(".mui-card-footer>.mui-btn").on("tap",function (){
+    console.log(11);
+})
+
 mui.init({
     pullRefresh: {
         container: '#pullrefresh',
